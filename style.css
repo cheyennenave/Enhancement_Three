@@ -1,0 +1,133 @@
+/*Basic style for all elements.*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body { /*For background.*/
+    padding: 0%;
+    margin: 0;
+    background: radial-gradient(#f68ef3, #680397);
+}
+
+.calculator-body { /*Calculator display.*/
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-body > button { /*Calculator button display.*/
+    cursor: pointer;
+    font-size: 2rem;
+    color: #680397;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-body > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two { /*For AC and = buttons design.*/
+    grid-column: span 2;
+}
+
+.output { /*Display.*/
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous { /*Previous input on display.*/
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current { /*Current input on display.*/
+    color: white;
+    font-size: 2.5rem;
+}
+
+/*ENHANCEMENT 3: Stylizing login.*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*Login background.*/
+body {
+  height: 100vh;
+  background: radial-gradient(#f68ef3, #680397);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Login/register box.*/
+.login-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/*Margin for sign in button.*/
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/*Input fields.*/
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/*Login button.*/
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #680397;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*Changes color when hovering over login button.*/
+.login-button:hover {
+  background-color: #c471eb;
+}
+
+/*Text below sign in button for registry option.*/
+.footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+

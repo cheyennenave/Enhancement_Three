@@ -1,0 +1,57 @@
+<!--ENHANCEMENT 3: Added a register HTML so users could register with a username and password to login to use the calculator. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" /> <!--All HTML files are styled with the same style.css file.-->
+</head>
+<body>
+  <div class="login-container">
+    <h2>Register</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button class="login-button" type="submit">Register</button>
+    </form>
+    <div class="footer">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <!--This script will send a POST request to the /createUser route. It requires a username and password, and the entered data
+  will be converted to JSON.-->
+  <script> 
+    document.querySelector("form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const username = document.querySelector("input[name='username']").value
+      const password = document.querySelector("input[name='password']").value
+         
+      const response = await fetch("http://localhost:3000/createUser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: username, password: password })
+      });
+
+      //this is a small alert box that informs the user if their account was created, if a username exists, or if registration fails.
+      if (response.status === 201) { 
+        alert("Account created successfully!");
+        window.location.href = "login.html";
+      } else if (response.status === 409) {
+        alert("Username already exists.");
+      } else {
+        alert("Registration failed. Try again.");
+      }
+    });
+  </script>
+</body>
+</html>
